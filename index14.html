@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+</head>
+
+<body>
+    <script>
+        let count = 0;
+        let GuessedNumber = Math.round(Math.random() * 1000);
+        let i;
+        while (i !== GuessedNumber) {
+            i = prompt("Enter Guessed number:")
+            i = Number.parseInt(i);
+            if (i > GuessedNumber) {
+                console.log(`You have Entered Greater number than Guessed Nummber, your Guessed number is = ${i} `);
+            }
+            else if (i < GuessedNumber) {
+                console.log(`you have entered Small number than Guessed Number, your Guessed number is = ${i} `);
+            }
+            count = count + 1;
+        }
+        console.log(`You have make total number of effort =${count} to find correct number and your Score is = ${100 - count} out of 100`);
+        console.log(` Hooray! you found right number :${GuessedNumber}`);
+          4+2;
+    </script>
+</body>
+
+</html>

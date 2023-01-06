@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // document.write("hello World");
+        let usercount = 0;
+        let cpuCount = 0;
+        let selection = ((user, cpu) => {
+            if (user == cpu) {
+                return "Match tied";
+            }
+            else if (user == "snake" && cpu == "gun") {
+                cpuCount = cpuCount + 1;
+                return "Computer Win";
+            }
+            else if (user == "snake" && cpu == "water") {
+                usercount = usercount + 1;
+                return "You Win";
+            }
+            else if (user == "water" && cpu == "gun") {
+                usercount = usercount + 1;
+                return "You Win";
+            }
+            else if (user == "water" && cpu == "snake") {
+                cpuCount = cpuCount + 1;
+                return "Computer Win";
+            }
+            else if (user == "gun" && cpu == "water") {
+                cpuCount = cpuCount + 1;
+                return "Computer Win";
+            }
+            else if (user == "gun" && cpu == "snake") {
+                usercount = usercount + 1;
+                return "You Win";
+            }
+        });
+
+        for (let i = 10; i >= 1; i--) {
+            let user = prompt("Enter snake, water or gun");
+            let computer = Math.round(Math.random() * 3);
+            let cInput = ["snake", "water", "gun"][computer];
+            let result = selection(user, cInput);
+            console.log(result);
+
+            console.log(`you Enters: ${user}\n Computer Enters: ${cInput}\nresult is: ${result}`);
+            console.log(`you have ${i} chances left.`);
+            console.log(`your Score is : ${usercount}\n Computer Score is : ${cpuCount}`);
+        }
+
+        if (usercount > cpuCount) {
+            console.log(`you win, because you win ${usercount} times and computer win ${cpuCount} times.`);
+        }
+        else{
+            console.log(`you loose, because you win ${usercount} times and computer win ${cpuCount} times.`);
+        }
+    </script>
+</body>
+
+</html>
